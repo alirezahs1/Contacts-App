@@ -466,10 +466,10 @@ const mockData = {
 }
 
 /**
- * Home page component
+ * Contact's list
  * Shows the list of contacts, filter, search, etc.
  */
-export default function HomePage() {
+export default function ContactListPage() {
 
 	const [searchParams, setSearchParams] = useSearchParams();
 	const searchParamsDict = Object.fromEntries([...searchParams]);
