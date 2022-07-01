@@ -506,7 +506,7 @@ export default function HomePage() {
 			</h1>
 
 			{/** Search Input */}
-			<SearchInput className={"mb-8"} placeholder="Search Contacts.." onChange={handleSearch} />
+			<SearchInput className={"mb-8"} placeholder="Search Contacts.." onChange={handleSearch} defaultValue={searchParams.get('search')} />
 
 			{/** List of contacts */}
 			{mockData.items.map(contact => (
