@@ -1,6 +1,8 @@
 import { Link, useSearchParams } from "react-router-dom";
 import ContactItem from "../../components/contact-item";
 import { SearchInput } from "../../components/search-input";
+import { InfiniteScroll } from "../../features/infinite-scroll";
+import { ITEMS_PER_PAGE } from "../../utils/constants";
 
 const mockData = {
     "meta": {
@@ -479,6 +481,21 @@ export default function HomePage() {
 		 });
 	}
 
+	const handleNextPage = () => {
+		
+		const skip = Number(searchParams.get('skip')) +  ITEMS_PER_PAGE;
+	
+		setSearchParams({
+			...searchParamsDict,
+			skip
+		})
+	
+		return new Promise(res => {
+			setTimeout(() => {
+				res();
+			}, 2000);
+		})
+	}
 
 	return (
 		<div className="max-w-xl mx-auto py-12 px-2">
@@ -504,6 +521,12 @@ export default function HomePage() {
 					/>
 				</Link>
 			))}
+
+			{/** Pagination */}
+			<InfiniteScroll
+				hasMore={(mockData?.meta?.skipped + mockData.meta.limit) < (mockData.meta.total)}
+				onNext={handleNextPage}
+			/>
 		</div>
 	);
 }
