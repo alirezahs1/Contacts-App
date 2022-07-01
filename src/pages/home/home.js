@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import ContactItem from "../../components/contact-item";
+import { SearchInput } from "../../components/search-input";
 
 const mockData = {
     "meta": {
@@ -467,6 +468,18 @@ const mockData = {
  * Shows the list of contacts, filter, search, etc.
  */
 export default function HomePage() {
+
+	const [searchParams, setSearchParams] = useSearchParams();
+	const searchParamsDict = Object.fromEntries([...searchParams]);
+
+	const handleSearch = search => {
+		setSearchParams({ 
+			...searchParamsDict,
+			search
+		 });
+	}
+
+
 	return (
 		<div className="max-w-xl mx-auto py-12 px-2">
 
@@ -474,6 +487,9 @@ export default function HomePage() {
 			<h1 className="text-4xl font-semibold mb-12 text-slate-700">
 				{mockData.meta.total} Contacts
 			</h1>
+
+			{/** Search Input */}
+			<SearchInput className={"mb-8"} placeholder="Search Contacts.." onChange={handleSearch} />
 
 			{/** List of contacts */}
 			{mockData.items.map(contact => (

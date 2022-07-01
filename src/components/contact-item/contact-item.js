@@ -23,7 +23,7 @@ export default function ContactItem({ className, name, avatar, phone, address, .
 				p-4
 				${className || ''}
 			`}>
-				<ContactItemAvatar src={avatar} alt={name} />
+				<ContactItemAvatar src={avatar} alt={name} randomBGIndex={name.charCodeAt(0)} />
 				<div className="flex flex-wrap ml-4 flex-1">
 					<ContactItemName name={name} />
 					<ContactItemPhone phone={phone} />

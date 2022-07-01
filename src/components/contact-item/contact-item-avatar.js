@@ -3,11 +3,11 @@ import { PropTypes } from "prop-types";
 /**
  * Avatar component for using in ContactItem component.
  */
-export default function ContactItemAvatar({className, src, randomBG=true, ...rest}) {
+export default function ContactItemAvatar({className, src, randomBGIndex=-1, ...rest}) {
 	
 	const BGColorClassNames = ['bg-red-400', 'bg-emerald-400', 'bg-sky-400'];
 
-	const bgClassName = randomBG ? BGColorClassNames[Math.floor(Math.random() * BGColorClassNames.length)] : '';
+	const bgClassName = randomBGIndex > -1 ? BGColorClassNames[randomBGIndex % BGColorClassNames.length] : '';
 	
 	return (
 		<div className={`
@@ -29,11 +29,11 @@ ContactItemAvatar.propTypes = {
 	/** Contact's avatar url */
 	src: PropTypes.string,
 	/** Randomize background color */
-	randomBG: PropTypes.bool,
+	randomBGIndex: PropTypes.number,
 }
 
 ContactItemAvatar.defaultProps = {
 	className: '',
 	src: '',
-	randomBG: true,
+	randomBGIndex: 0,
 }
