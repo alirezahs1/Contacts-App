@@ -1,8 +1,8 @@
 import { faTelegramPlane } from "@fortawesome/free-brands-svg-icons";
 import { faBuilding, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { ContactItemAvatar } from "../../components/contact-item";
-import IconList from "../../components/icon-list";
-import { millisecondsToDateStr } from "../../utils/date";
+import { ContactItemAvatar } from "components/contact-item";
+import IconList from "components/icon-list";
+import { millisecondsToDateStr } from "utils/date";
 
 const mockData = {
 	"first_name": "Sonja",

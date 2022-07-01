@@ -1,5 +1,3 @@
 import SearchInput from "./search-input";
 
-export {
-	SearchInput
-}
+export default SearchInput

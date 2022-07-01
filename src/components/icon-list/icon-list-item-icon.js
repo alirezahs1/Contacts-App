@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-export const IconListItemIcon = ({className, icon, ...rest}) => {
+export default function IconListItemIcon({className, icon, ...rest}){
 	return (
 		<FontAwesomeIcon 
 			className={`

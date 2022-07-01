@@ -3,7 +3,7 @@ import AppRoutes from "./routes";
 import React from "react";
 
 /** global styles */
-import "./assets/styles/globals.css"
+import "assets/styles/globals.css"
 
 function App() {
 	return (

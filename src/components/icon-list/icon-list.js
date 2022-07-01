@@ -1,6 +1,6 @@
-import { IconListItem } from "./icon-list-item"
+import IconListItem from "./icon-list-item"
 
-export const IconList = ({className, children, ...rest}) => {
+export default function IconList({className, children, ...rest}){
 	return (
 		<ul
 			className={`

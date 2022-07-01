@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { InfiniteScrollLoader } from './infinite-scroll-loader';
+import InfiniteScrollLoader from './infinite-scroll-loader';
 import PropTypes from 'prop-types';
 
 /**
  * InfiniteScroll component
  */
-export const InfiniteScroll = ({ onNext, threshold, hasMore }) => {
+export default function InfiniteScroll({ onNext, threshold, hasMore }){
 
 	/**
 	 * refrence for checking the component is in viewport

@@ -1,5 +1,3 @@
-import { InfiniteScroll } from "./infinite-scroll";
+import InfiniteScroll from "./infinite-scroll";
 
-export {
-	InfiniteScroll
-}
+export default InfiniteScroll

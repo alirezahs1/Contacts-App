@@ -1,3 +1,3 @@
-import { IconList } from "./icon-list";
+import IconList from "./icon-list";
 
 export default IconList;

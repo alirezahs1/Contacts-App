@@ -1,8 +1,8 @@
 import { Link, useSearchParams } from "react-router-dom";
-import ContactItem from "../../components/contact-item";
-import { SearchInput } from "../../components/search-input";
-import { InfiniteScroll } from "../../features/infinite-scroll";
-import { ITEMS_PER_PAGE } from "../../utils/constants";
+import ContactItem from "components/contact-item";
+import SearchInput from "components/search-input";
+import InfiniteScroll from "features/infinite-scroll";
+import { ITEMS_PER_PAGE } from "utils/constants";
 
 const mockData = {
     "meta": {
