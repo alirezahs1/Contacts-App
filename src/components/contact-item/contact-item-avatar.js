@@ -3,8 +3,8 @@ import { PropTypes } from "prop-types";
 /**
  * Avatar component for using in ContactItem component.
  */
-export default function ContactItemAvatar({className, src, randomBGIndex=-1, ...rest}) {
-	
+export default function ContactItemAvatar({className, src, randomBGIndex, size, ...rest}) {
+
 	const BGColorClassNames = ['bg-red-400', 'bg-emerald-400', 'bg-sky-400'];
 
 	const bgClassName = randomBGIndex > -1 ? BGColorClassNames[randomBGIndex % BGColorClassNames.length] : '';
@@ -12,11 +12,15 @@ export default function ContactItemAvatar({className, src, randomBGIndex=-1, ...
 	return (
 		<div className={`
 				flex items-center justify-center 
-				h-16 w-16
 				rounded-full
 				${bgClassName}
 				${className || ''}
-			`}>
+			`}
+			style={{
+				width: size + 'px',
+				height: size + 'px'
+			}}
+			>
 				{src && (
 					<img className="rounded-full h-full w-full" src={src} {...rest} />
 				)}
@@ -30,10 +34,13 @@ ContactItemAvatar.propTypes = {
 	src: PropTypes.string,
 	/** Randomize background color */
 	randomBGIndex: PropTypes.number,
+	/** size of image (width and height) */
+	size: PropTypes.number,
 }
 
 ContactItemAvatar.defaultProps = {
 	className: '',
 	src: '',
 	randomBGIndex: 0,
+	size: 64
 }
