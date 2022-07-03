@@ -4,9 +4,11 @@ import { getContacts } from "api/contacts";
 import { ContactItemAvatar } from "components/contact-item";
 import IconList from "components/icon-list";
 import Loading from "components/loading";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
 import { millisecondsToDateStr } from "utils/date";
+import RecentStorage from "utils/recent-storage";
 
 /**
  * Contact page component
@@ -18,12 +20,19 @@ export default function ContactDetailPage() {
 
 	const { isLoading, data } = useQuery(['contact', id], () => getContacts({ id }));
 
+	useEffect(() => {
+
+		const recentStorage = new RecentStorage("recent-contacts");
+		recentStorage.addLast(id);
+
+	}, [])
+
 	if (isLoading) {
 		return <Loading />
 	}
 
 	return (
-		<div className="max-w-xl mx-auto py-12 px-2">
+		<div className="max-w-2xl mx-auto py-12 px-2">
 
 			<div className="
 					bg-white shadow-sm 
